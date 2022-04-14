@@ -96,19 +96,19 @@ def resource_manager():
 ####################################################################
                         Resource Manager
         
-                {:<15} {:<15} {:<15} {:<15}
+            {:<15} {:<15} {:<15} {:<15}
     """.format('Resource', 'Current User', 'Time Left', 'Free In')
     )
     _ = [
         print(
             """
-                {:<15} {:<15} {:<15} {:<15}""".format(resource['id'], resource['tasks'][0]['user'], resource['tasks'][0]['time'], calculate_total_time(resource['tasks']))
+            {:<15} {:<15} {:<15} {:<15}""".format(resource['id'], resource['tasks'][0]['user'], resource['tasks'][0]['time'], calculate_total_time(resource['tasks']))
         )
         if len(resource['tasks'])
         else
         print(
             """
-                {:<15} {:<15} {:<15} {:<15}""".format(resource['id'], 'None', 0, 0)
+            {:<15} {:<15} {:<15} {:<15}""".format(resource['id'], 'None', 0, 0)
         )
         for resource in resources
 
@@ -123,14 +123,14 @@ def resource_waitlist():
 ####################################################################
                         Waitlisted Users
         
-                {:<15} {:<15} {:<15}
+            {:<15} {:<15} {:<15}
     """.format('User', 'Resource', 'Starts At')
     )
     _ = [
         [
             print(
                 """
-                {:<15} {:<15} {:<15}""".format(task['user'], resource['id'], calculate_total_time(resource['tasks'][:index]))
+            {:<15} {:<15} {:<15}""".format(task['user'], resource['id'], calculate_total_time(resource['tasks'][:index]))
             )
             for index, task in enumerate(resource['tasks'])
             if index > 0
