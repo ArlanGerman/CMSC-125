@@ -66,7 +66,7 @@ def allocate():
     user: int = 0
     while True:
         try:
-            os.system('cls')
+            os.system('clear')
             user = int(input(
                 f"""
     ####################################################################
@@ -90,7 +90,7 @@ def allocate():
 
 
 def resource_manager():
-    os.system('cls')
+    os.system('clear')
     print(
         """
     ####################################################################
@@ -117,7 +117,7 @@ def resource_manager():
 
 
 def resource_waitlist():
-    os.system('cls')
+    os.system('clear')
     print(
         """
     ####################################################################
@@ -145,7 +145,7 @@ def timeskip():
     timeskip: int = 0
     while True:
         try:
-            os.system('cls')
+            os.system('clear')
             timeskip = int(input(
                 f"""
     ####################################################################
@@ -175,7 +175,7 @@ def timeskip():
 
 def main():
     while True:
-        os.system('cls')
+        os.system('clear')
         command: str = (input(
             """
     ####################################################################
