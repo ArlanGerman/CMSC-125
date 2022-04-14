@@ -69,14 +69,14 @@ def allocate():
             os.system('clear')
             user = int(input(
                 f"""
-    ####################################################################
-                    Allocating a given user
-            
-            Available users: {users}
+####################################################################
+                Allocating a given user
+        
+        Available users: {users}
 
-            Note: Input 0 to cancel
+        Note: Input 0 to cancel
 
-            Input user: """
+        Input user: """
             ))
             break
         except Exception:
@@ -93,22 +93,22 @@ def resource_manager():
     os.system('clear')
     print(
         """
-    ####################################################################
-                            Resource Manager
-            
-                    {:<15} {:<15} {:<15} {:<15}
-        """.format('Resource', 'Current User', 'Time Left', 'Free In')
+####################################################################
+                        Resource Manager
+        
+                {:<15} {:<15} {:<15} {:<15}
+    """.format('Resource', 'Current User', 'Time Left', 'Free In')
     )
     _ = [
         print(
             """
-                    {:<15} {:<15} {:<15} {:<15}""".format(resource['id'], resource['tasks'][0]['user'], resource['tasks'][0]['time'], calculate_total_time(resource['tasks']))
+                {:<15} {:<15} {:<15} {:<15}""".format(resource['id'], resource['tasks'][0]['user'], resource['tasks'][0]['time'], calculate_total_time(resource['tasks']))
         )
         if len(resource['tasks'])
         else
         print(
             """
-                    {:<15} {:<15} {:<15} {:<15}""".format(resource['id'], 'None', 0, 0)
+                {:<15} {:<15} {:<15} {:<15}""".format(resource['id'], 'None', 0, 0)
         )
         for resource in resources
 
@@ -120,17 +120,17 @@ def resource_waitlist():
     os.system('clear')
     print(
         """
-    ####################################################################
-                            Waitlisted Users
-            
-                    {:<15} {:<15} {:<15}
-        """.format('User', 'Resource', 'Starts At')
+####################################################################
+                        Waitlisted Users
+        
+                {:<15} {:<15} {:<15}
+    """.format('User', 'Resource', 'Starts At')
     )
     _ = [
         [
             print(
                 """
-                    {:<15} {:<15} {:<15}""".format(task['user'], resource['id'], calculate_total_time(resource['tasks'][:index]))
+                {:<15} {:<15} {:<15}""".format(task['user'], resource['id'], calculate_total_time(resource['tasks'][:index]))
             )
             for index, task in enumerate(resource['tasks'])
             if index > 0
@@ -148,12 +148,12 @@ def timeskip():
             os.system('clear')
             timeskip = int(input(
                 f"""
-    ####################################################################
-                    Commencing timeskip
+####################################################################
+                Commencing timeskip
 
-            Note: Input 0 to cancel
+        Note: Input 0 to cancel
 
-            Input timeskip value (in seconds): """
+        Input timeskip value (in seconds): """
             ))
             break
         except Exception:
@@ -178,19 +178,19 @@ def main():
         os.system('clear')
         command: str = (input(
             """
-    ####################################################################
-                    Time-sharing System Simulation
-            
-            Commands:
-            
-                1.  Allocate resource for user
-                2.  Display resource manager
-                3.  Display resource waitlist
-                4.  Perform timeskip
+####################################################################
+                Time-sharing System Simulation
+        
+        Commands:
+        
+            1.  Allocate resource for user
+            2.  Display resource manager
+            3.  Display resource waitlist
+            4.  Perform timeskip
 
-    ####################################################################
+####################################################################
 
-            Input: """
+        Input: """
         ))
 
         if command == '1':
