@@ -184,7 +184,7 @@ class RoundRobin(Scheduler):
 
 
 def main():
-    os.system("cls")
+    os.system("clear")
     filepath: str = input(
         """
 ####################################################################
@@ -194,7 +194,7 @@ def main():
     )
 
     while True:
-        os.system("cls")
+        os.system("clear")
         processes = Reader.read(filepath, with_header=True)
         command: str = (input(
             """
@@ -213,7 +213,7 @@ def main():
 
         Input: """
         ))
-        os.system("cls")
+        os.system("clear")
         if command == '1':
             gantt = FCFS(processes).schedule()
             Reporter.report(gantt)
