@@ -2,6 +2,8 @@ from typing import Dict, List
 import os
 import time
 
+from sqlalchemy import true
+
 
 class Scheduler:
     """
@@ -161,14 +163,16 @@ class Priority(Scheduler):
 
 class RoundRobin(Scheduler):
     def __init__(self, processes: List[Dict[str, int]], quantum: int) -> None:
-        super().__init__(processes)
+        self.processes = processes
         self.quantum = quantum
 
     def sort(self):
         self.processes: List[Dict[str, int]] = sorted(
             self.processes, key=lambda e: e['Arrival'])
+        print(self.processes)
         exceeds = [process['CPU Burst Time'] >
                    self.quantum for process in self.processes]
+        print(any(exceeds))
         while any(exceeds):
             new_process = self.processes[exceeds.index(True)].copy()
             self.processes[exceeds.index(
@@ -180,7 +184,7 @@ class RoundRobin(Scheduler):
 
 
 def main():
-    os.system("clear")
+    os.system("cls")
     filepath: str = input(
         """
 ####################################################################
@@ -189,10 +193,9 @@ def main():
     Input path to file: """
     )
 
-    processes = Reader.read(filepath, with_header=True)
-
     while True:
-        os.system("clear")
+        os.system("cls")
+        processes = Reader.read(filepath, with_header=True)
         command: str = (input(
             """
 ####################################################################
@@ -210,7 +213,7 @@ def main():
 
         Input: """
         ))
-        os.system("clear")
+        os.system("cls")
         if command == '1':
             gantt = FCFS(processes).schedule()
             Reporter.report(gantt)
