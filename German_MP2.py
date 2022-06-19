@@ -113,7 +113,7 @@ class FCFS(Scheduler):
         super().__init__(processes)
 
     def sort(self) -> None:
-        self.processes = sorted(self.processes, key=lambda e: e['Arrival'])
+        return
 
 
 class SJF(Scheduler):
@@ -169,10 +169,8 @@ class RoundRobin(Scheduler):
     def sort(self):
         self.processes: List[Dict[str, int]] = sorted(
             self.processes, key=lambda e: e['Arrival'])
-        print(self.processes)
         exceeds = [process['CPU Burst Time'] >
                    self.quantum for process in self.processes]
-        print(any(exceeds))
         while any(exceeds):
             new_process = self.processes[exceeds.index(True)].copy()
             self.processes[exceeds.index(
