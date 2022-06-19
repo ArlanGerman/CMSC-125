@@ -2,9 +2,6 @@ from typing import Dict, List
 import os
 import time
 
-from sqlalchemy import true
-
-
 class Scheduler:
     """
     Returns completion, turnaround, and waiting times
