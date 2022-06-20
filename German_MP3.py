@@ -77,7 +77,7 @@ class Evaluator:
         waiting_time_in_queue: List[int] = []
         internal_fragmentation: List[int] = []
 
-        os.system("cls")
+        os.system("clear")
         for unit in self.history:
             throughput.append(len(unit['running']))
             storage_utilization.append((sum([1 for job in unit['running'] if job != None]), sum(
@@ -166,7 +166,7 @@ class Evaluator:
 
 def main():
     while True:
-        os.system("cls")
+        os.system("clear")
         memory = [
             {"id": 1, "size": 9500},
             {"id": 2, "size": 7000},
@@ -219,7 +219,7 @@ def main():
 ####################################################################
         Input: """
         ))
-        os.system("cls")
+        os.system("clear")
         if command == '1':
             history = FirstFit(memory.copy(), jobs.copy()).simulate()
             Evaluator(memory.copy(), history).compute_metrics()
